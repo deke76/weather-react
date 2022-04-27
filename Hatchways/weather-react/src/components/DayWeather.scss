@@ -1,0 +1,12 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../styles/variables.scss";
+
+.card {
+  padding: 0.5em;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $card-bg;
+}

@@ -1,10 +1,12 @@
-import useApplicationData from "../Hooks/useApplicationData";
-import getLocation from "../helpers";
-
-const openWeatherURL = 'https://community-open-weather-map.p.rapidapi.com/weather';
+import useApplicationData from "../hooks/useApplicationData";
+import WeekWeather from '../components/WeekWeather';
+import DayWeather from '../components/DayWeather';
+import { getLocation, apiOptions } from "../helpers";
 
 export {
+  apiOptions,
+  DayWeather,
   getLocation,
-  openWeatherURL,
-  useApplicationData
+  useApplicationData,
+  WeekWeather
 };

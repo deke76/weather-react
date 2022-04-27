@@ -1,13 +1,13 @@
 import React from 'react';
-import { useApplicationData } from '../constants';
+import { useApplicationData, WeekWeather } from '../constants';
 import './App.css';
 
 function App() {
-  const { weather } = useApplicationData;
+  const { state } = useApplicationData();
 
   return (
     <main className="App">
-      {weather}
+      <WeekWeather state={state}/>
     </main>
   );
 }

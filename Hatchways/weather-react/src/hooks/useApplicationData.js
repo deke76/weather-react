@@ -1,15 +1,28 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { getLocation, openWeatherURL } from '../constants'
+import { apiOptions } from '../constants'
+import axios from 'axios';
 
 export default function useApplicationData() {
-  const[weather, setWeather] = useState({});
+  const[state, setState] = useState({
+    day: 'Monday',
+    forecast: [],
+    config: {
+      city: 'Calgary',
+      language: 'English',
+      units: 'metric'
+    }
+  })
+  
+  useEffect(() => {  
+   axios.request(apiOptions(state.config))
+   .then(response => {
+     console.log(response);
+     setState(prev => ({ ...prev, forecast: response.data.list}));
+   })
+   .catch(error => {
+     console.error(error);
+   });
+  }, [state.config]);
 
-  useEffect() => {
-    axios
-      .get(openWeatherURL)
-      .then(response => console.log(response);)
-  };
-
-  return { weather };
+  return { state };
 }
