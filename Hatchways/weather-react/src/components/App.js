@@ -7,7 +7,7 @@ function App() {
 
   return (
     <main className="App">
-      <WeekWeather state={state}/>
+      <WeekWeather forecast={state.forecast}/>
     </main>
   );
 }

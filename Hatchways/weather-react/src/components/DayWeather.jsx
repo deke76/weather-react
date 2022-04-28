@@ -1,15 +1,19 @@
 import React from "react";
+import classNames from "classnames";
 import './DayWeather.scss';
 
 export default function DayWeather(props) {
-  const { low, high } = props;
-  console.log(low);
+  const { day, low, high, icon, description, current } = props;
+
+  const dayClass = 
+  classNames('card', current ? 'bg-light' : '');
+  
   return (
-    <div className='card'>
-      <div className='card-title'>Day</div>
-      <div className='card-body'>Icon</div>
+    <div className={dayClass}>
+      <div className='card-title'>{day}</div>
+      <div className='card-body'><img src={icon} alt={description} /></div>
       <div className='footer'>
-        <div>{low} &#176;</div>
+        <div className='fw-bold'>{low} &#176;</div>
         <div>{high} &#176;</div>
       </div>
     </div>

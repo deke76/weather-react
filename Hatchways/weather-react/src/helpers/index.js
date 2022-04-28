@@ -13,3 +13,27 @@ export function apiOptions(config) {
     }
   }
 };
+
+export function iconWeather(id) {
+  let url = "http://openweathermap.org/img/wn/"
+  const strID = 
+    id < 300
+      ? '11d'
+      : id < 400
+      ? '09d'
+      : id < 600
+      ? '10d'
+      : id < 700
+      ? '13d'
+      : id < 800
+      ? '50d'
+      : id === 800
+      ? '01d'
+      : id === 801
+      ? '02d'
+      : id === 802
+      ? '03d'
+      : '04d'
+  url += strID + '@2x.png'
+  return url
+};
